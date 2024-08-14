@@ -1,18 +1,19 @@
 import requests 
 import time
+import base64
 
 # Enter the url's you want scanned within the list
 list = [
 ]
 
-list = [ip.strip() for ip in list]
-
 api_key = '{your_api_key_here}'
 
 # For loop to go through every url in the list
-for ip in list:
+for site in list:
 
-    url = f'https://www.virustotal.com/api/v3/ip_addresses/{ip}'
+    # Encode and strip the url so it complies with Virus Total's query format
+    encoded_url = base64.urlsafe_b64encode(site.encode()).decode().strip("=")
+    url = f'https://www.virustotal.com/api/v3/urls/{encoded_url}'
     headers = {'x-apikey': api_key}
 
     # Get request to the Virus Total API
@@ -27,13 +28,13 @@ for ip in list:
     # Write the results to 'vt_results.txt' based on the number of malicious detections
     with open('vt_results.txt', 'a') as vt:
         if positives <= 0:
-            vt.write(f"{ip} -\tNOT MALICIOUS\n")
+            vt.write(f"{site} -\tNOT MALICIOUS\n")
         elif 1 <= positives <= 3:
-            vt.write(f"{ip} -\tMAYBE MALICIOUS\n")
+            vt.write(f"{site} -\tMAYBE MALICIOUS\n")
         elif positives >= 4:
-            vt.write(f"{ip} -\tMALICIOUS\n")
+            vt.write(f"{site} -\tMALICIOUS\n")
         else:
-            vt.write(f"{ip} -\tERROR IN ANALYSIS\n")
+            vt.write(f"{site} -\tERROR IN ANALYSIS\n")
 
     # Sleep for 15 seconds to respect the API response rate
     time.sleep(15)
