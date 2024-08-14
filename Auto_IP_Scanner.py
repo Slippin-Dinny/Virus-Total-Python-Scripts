@@ -1,7 +1,7 @@
 import requests 
 import time
 
-list = ['80.249.250.37',
+list = [
 ]
 
 
