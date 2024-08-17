@@ -10,3 +10,4 @@ Without a premium API key you'll encounter limits in the amount of request's tha
 Daily Request Quota - 500 Requests / day
 Request Limit - 4 Requests / min
 ```
+With the imposed limits you'll only be capable of processing a request every 15 seconds to a maximum of 500 per day.
