@@ -7,7 +7,8 @@ A small collection of python scripts that i've written that uses the VirusTotal 
 # Limits
 The Virus Total API while useful doesnt come without drawbacks, without a premium API key you'll encounter limits in the amount of request's that you can proccess.
 ```
-Daily Request Quota - 500 Requests / day
 Request Limit - 4 Requests / min
+Daily Request Quota - 500 Requests / day
+Monthly Request Quota - 15,500 Requests / month
 ```
 While using a basic free API key you'll be bound by the above limitations.
