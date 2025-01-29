@@ -2,7 +2,7 @@ import requests
 import time
 import base64
 
-# Enter the url's you want scanned within the list
+# # Define your list of URL's here.
 list = [
 ]
 
