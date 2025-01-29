@@ -2,7 +2,7 @@ import requests
 import time
 
 list = [
-] # Define your list of IP's here.
+] # Define your list of IP's here
 
 
 list = [ip.strip() for ip in list]
